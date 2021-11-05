@@ -2,6 +2,9 @@
 // - Stampiamo i post del nostro feed.
 // - Sotto al nome NON inseire il calcolo della data (es 4 mesi fa) ma la data i formato italiano (GG/MM/AAAA)
 
+
+
+// ARRAY DI OGGETTI CON ALL'INTERNO I POST DA INSERIRE NELL'HTML
 const posts = [
     {
         "id": 1,
@@ -59,3 +62,49 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+const container = document.getElementById('container');
+
+
+
+// FUNZIONE CHE CI PERMETTE DI INSERIRE I POST IN BASE ALL'ARRAY DI OGGETTI CREATO
+function createPost(post){
+    for (let i in post){
+        container.innerHTML +=
+        `
+        <div class="post">
+        <div class="post__header">
+        <div class="post-meta">                    
+        <div class="post-meta__icon"> 
+        <img class="profile-pic" src="${post[i].author.image}" alt="${post[i].name}">                    
+        </div>
+        <div class="post-meta__data">
+        <div class="post-meta__author">${post[i].author.name}</div>
+        <div class="post-meta__time">05/11/21</div>
+        </div>                    
+        </div>
+        </div>
+        <div class="post__text">${post[i].content}</div>
+        <div class="post__image">
+        <img src="${post[i].media}" alt="">
+        </div>
+        <div class="post__footer">
+        <div class="likes js-likes">
+        <div class="likes__cta">
+        <a class="like-button  js-like-button" href="#" data-postid="1">
+        <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+        <span class="like-button__label">Mi Piace</span></a>
+        </div>
+        <div class="likes__counter">
+        Piace a <b id="like-counter-1" class="js-likes-counter">0</b> persone
+        </div>
+        </div> 
+        </div>      
+        `
+        ;
+    }
+    
+}
+createPost(posts);
+
+
