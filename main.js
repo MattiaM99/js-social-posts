@@ -66,7 +66,6 @@ const posts = [
 const container = document.getElementById('container');
 
 
-
 // FUNZIONE CHE CI PERMETTE DI INSERIRE I POST IN BASE ALL'ARRAY DI OGGETTI CREATO
 function createPost(post){
     for (let i in post){
@@ -103,16 +102,16 @@ function createPost(post){
         </div>      
         `
         ;
-    }
-    
+    }   
 }
 createPost(posts);
 
-let clicks = 0;
+// FUNZIONE CHE AUMENTA CONTATORE LIKES
+let like = 0;
 
 function incrementLikes() {
-  clicks += 1;
-  document.getElementById("like-counter-1").innerHTML = clicks;
+  like += 1;
+  document.getElementById("like-counter-1").innerHTML = like;
 };
 
-console.log(clicks);
+console.log(like);
